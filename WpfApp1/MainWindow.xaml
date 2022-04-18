@@ -6,21 +6,22 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" ResizeMode="NoResize" WindowState="Maximized" Loaded="Window_Loaded">
-    
+
     <Grid Width="1920" Height="1080">
 
-            
-        <ListView x:Name="listName" Margin="542,187,692,362"  d:ItemsSource="{d:SampleData ItemCount=5}" Loaded="listName_Loaded" MouseDoubleClick="listName_MouseDoubleClick">
+
+        <ListView x:Name="listName" Margin="360,192,660,473"  d:ItemsSource="{d:SampleData ItemCount=5}" Loaded="listName_Loaded" MouseDoubleClick="listName_MouseDoubleClick" Width="900">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="УБИ"  DisplayMemberBinding="{Binding Ubi}"/>
-                    <GridViewColumn Header="Наименование угрозы" Width="300" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Width="100"  Header="УБИ"  DisplayMemberBinding="{Binding Ubi}"/>
+                    <GridViewColumn Width="800" Header="Наименование угрозы"  DisplayMemberBinding="{Binding Name}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="buttonNext" Content="Следующая страница" Width="150" Height="50" RenderTransformOrigin="0.494,0.46" Margin="1078,668,692,362" Click="buttonNext_Click"/>
-        <Button x:Name="buttonPrev" Content="Предыдущая страница" Width="150" Height="50"  Click="buttonPrev_Click" Margin="542,668,1228,362" IsManipulationEnabled="True"/>
-        <Button x:Name="buttonCreate" Content="Создать файл" Width="150" Height="50" Margin="810,750,960,280" Click="buttonCreate_Click"></Button>
+        <Button x:Name="buttonNext" Content="Следующая страница" Width="150" Height="50" RenderTransformOrigin="0.494,0.46" Margin="994,607,776,423" Click="buttonNext_Click"/>
+        <Button x:Name="buttonPrev" Content="Предыдущая страница" Width="150" Height="50"  Click="buttonPrev_Click" Margin="458,607,1312,423" IsManipulationEnabled="True"/>
+        <Button x:Name="buttonCreate" Content="Сохранить на диске" Width="150" Height="50" Margin="844,607,926,423" Click="buttonCreate_Click"></Button>
+        <Button x:Name="buttonUpload" Content="Загрузить последнюю версию файла" Height="50" Margin="608,607,1076,423" Click="buttonUpload_Click"/>
 
     </Grid>
 </Window>

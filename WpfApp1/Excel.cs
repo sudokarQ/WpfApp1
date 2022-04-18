@@ -27,7 +27,10 @@ namespace WpfApp1
             wb.Close();
         }
 
-        
+        public void Save()
+        {
+            wb.Save();
+        }
 
         public string[,] ReadRange(int starti, int starty, int endi, int endy) // чтение диапазона
         {
@@ -38,10 +41,20 @@ namespace WpfApp1
             {
                 for (int j = 1; j <= endy - starty; j++)
                 {
-                    returnstring[i - 1, j - 1] = holder[i, j].ToString();
+                    if (returnstring[i - 1, j - 1] == null)
+                    {
+                        holder[i, j] = "";
+                    }
+                    else returnstring[i - 1, j - 1] = holder[i, j].ToString();
                 }
             }
             return returnstring;
+        }
+
+        public void WriteRange(int starti, int starty, int endi, int endy, string[,] writestring) // чтение диапазона
+        {
+            Range range = (Range)ws.Range[ws.Cells[starti, starty], ws.Cells[endi, endy]];
+            range.Value2 = writestring;
         }
 
         public MyTable ReadRow(int num, int start, int end) // читаем целую строку 
@@ -64,6 +77,14 @@ namespace WpfApp1
                 return  Convert.ToString(ws.Cells[i, j].Value2);
             else return "blank";
         }
-        
+
+        public string ReadCellDate(int i, int j) // прочитать ячейку
+        {
+            i++; j++;
+            if (ws.Cells[i, j].Value2 != null)
+                return Convert.ToString(ws.Cells[i, j].Value2);
+            else return "blank";
+        }
+
     }
 }

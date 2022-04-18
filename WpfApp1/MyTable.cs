@@ -59,6 +59,10 @@ namespace WpfApp1
         public string Access { get; set; }
         public string Date { get; set; }
         public string LastChange { get; set; }
+
+
+        public string Today { get; set; }
+        public string InPast { get; set; }
     }
 
     
